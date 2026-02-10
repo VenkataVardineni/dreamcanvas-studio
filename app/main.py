@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import json
+import sys
 from dataclasses import asdict
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import streamlit as st
 from PIL import Image
+
+# Add project root to Python path
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
 
 from src.generation.generate import ALLOWED_RESOLUTIONS, ResolutionError, generate_batch
 from src.presets import (
