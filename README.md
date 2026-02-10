@@ -59,6 +59,8 @@ DreamCanvas Studio uses the PyTorch MPS backend to run Stable Diffusion on Apple
 - **Warmup pass**: On first run, a single-step warmup inference is executed to stabilize performance and match outputs.
 - **Precision**: The pipeline is configured to avoid problematic float64 usage on MPS and use supported dtypes.
 
+> **Note on Docker & MPS**: When running inside the provided Docker container (Linux-based), Apple Silicon's MPS acceleration is not available. The app will run on CPU in that environment.
+
 ## Project Structure
 
 - `app/` – Streamlit UI application (studio layout, gallery, compare mode).
@@ -77,5 +79,9 @@ DreamCanvas Studio uses the PyTorch MPS backend to run Stable Diffusion on Apple
 3. **Ensure PyTorch MPS** is installed and working (PyTorch >= 2 with `mps` support).
 4. **Run the Streamlit app** with `streamlit run app/main.py`.
 
-For more details see `setup.md` (to be added) and `docs/` for demo and screenshots.
+For detailed setup steps see `setup.md`. For demo and screenshots, see the `docs/` folder (including `docs/demo-script.md` and `docs/screens/`).
+
+## Reproducibility Guarantee
+
+Every generated image is saved with a PNG file and a JSON sidecar that captures the full generation parameters (prompt, negative prompt, seed, steps, guidance, model, device, and more). Using this metadata, any image can be regenerated from within the app via the **Reproduce** button in the gallery detail view, or by manually re-running the pipeline with the same settings.
 
