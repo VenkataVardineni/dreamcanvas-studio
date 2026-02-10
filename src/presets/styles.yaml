@@ -1,0 +1,62 @@
+# Style presets for DreamCanvas Studio
+
+presets:
+  - id: cinematic
+    name: "Cinematic"
+    style_prefix: "cinematic still, ultra high resolution, 35mm photography, volumetric lighting, film grain"
+    negative_prompt: "low resolution, blurry, noisy, distorted, oversaturated, watermark, text"
+
+  - id: cyberpunk
+    name: "Cyberpunk"
+    style_prefix: "highly detailed cyberpunk scene, neon lights, rainy streets, reflective surfaces, ultra sharp focus"
+    negative_prompt: "flat lighting, low detail, grayscale, washed out, low contrast, text, watermark"
+
+  - id: watercolor
+    name: "Watercolor"
+    style_prefix: "soft watercolor painting, textured paper, gentle color bleeding, subtle gradients"
+    negative_prompt: "hard edges, 3d render, photorealistic, noisy, overly saturated"
+
+  - id: minimal-product
+    name: "Minimal product photo"
+    style_prefix: "studio product photography, minimal background, soft shadows, centered composition, high key lighting"
+    negative_prompt: "cluttered background, low light, noisy, motion blur, off center, watermark"
+
+  - id: anime-key-visual
+    name: "Anime key visual"
+    style_prefix: "vibrant anime key visual, detailed character design, dynamic pose, clean lineart, vivid colors"
+    negative_prompt: "realistic, photorealistic, 3d render, messy lineart, low detail"
+
+  - id: arch-render
+    name: "Architectural render"
+    style_prefix: "clean architectural visualization, wide angle, natural lighting, realistic materials, studio quality render"
+    negative_prompt: "cartoon, anime, low poly, noisy, low resolution, fisheye distortion"
+
+  - id: noir
+    name: "Film noir"
+    style_prefix: "black and white film noir, dramatic shadows, strong contrast, cinematic lighting, 1940s style"
+    negative_prompt: "colorful, flat lighting, low contrast, modern, oversaturated"
+
+  - id: illustration
+    name: "Editorial illustration"
+    style_prefix: "modern editorial illustration, flat colors, bold shapes, clean vector style"
+    negative_prompt: "photorealistic, 3d render, noisy, low contrast, overly detailed"
+
+  - id: macro
+    name: "Macro photography"
+    style_prefix: "macro lens photography, extreme close-up, shallow depth of field, crisp details"
+    negative_prompt: "wide shot, distant, low detail, noisy, motion blur"
+
+  - id: fantasy-concept
+    name: "Fantasy concept art"
+    style_prefix: "epic fantasy concept art, dramatic lighting, painterly brushstrokes, highly detailed environment"
+    negative_prompt: "flat lighting, low detail, cartoon, chibi, low resolution"
+
+  - id: pixel-art
+    name: "Pixel art"
+    style_prefix: "retro pixel art, 16-bit, limited color palette, crisp pixels, game sprite style"
+    negative_prompt: "high resolution, photorealistic, blurry, painterly"
+
+  - id: sketch
+    name: "Pencil sketch"
+    style_prefix: "detailed pencil sketch, graphite on paper, cross-hatching, high contrast line work"
+    negative_prompt: "colorful, digital painting, 3d render, low contrast, messy lines"
