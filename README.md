@@ -80,7 +80,7 @@ DreamCanvas Studio uses the PyTorch MPS backend to run Stable Diffusion on Apple
 4. **Run the Streamlit app** with `streamlit run app/main.py`.
 
 For detailed setup steps see `setup.md`. For demo and screenshots, see the `docs/` folder (including `docs/demo-script.md` and `docs/screens/`).
-
+### ScreenshotsnnSample UI screenshots are available in the `docs/screens/` folder (e.g. `screen-1.png`, `screen-2.png`, etc.).n
 ## Reproducibility Guarantee
 
 Every generated image is saved with a PNG file and a JSON sidecar that captures the full generation parameters (prompt, negative prompt, seed, steps, guidance, model, device, and more). Using this metadata, any image can be regenerated from within the app via the **Reproduce** button in the gallery detail view, or by manually re-running the pipeline with the same settings.
