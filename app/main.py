@@ -146,7 +146,10 @@ def _do_generate(
     records: List[GenerationRecord] = []
 
     try:
-        with st.spinner("Generating images..."):
+        status_placeholder = st.empty()
+        status_placeholder.info("⏳ Loading model and generating... This may take 2-5 minutes on first run (downloading ~4GB model). Subsequent runs will be faster.")
+        
+        with st.spinner("Generating images... This may take 1-3 minutes depending on your hardware."):
             images, metas = generate_batch(
                 prompt_info["composed_prompt"],
                 negative_prompt=prompt_info["composed_negative"],
@@ -158,6 +161,8 @@ def _do_generate(
                 width=settings["width"],
                 model_id=settings["model_id"],
             )
+        
+        status_placeholder.empty()
 
         for img, meta in zip(images, metas):
             rec = save_generation(
@@ -168,10 +173,13 @@ def _do_generate(
             records.append(rec)
 
         st.success(f"Generated {len(records)} image(s).")
+        st.session_state.model_loaded = True  # Mark model as loaded after first success
     except ResolutionError as e:
         st.error(str(e))
     except Exception as e:  # noqa: BLE001
         st.error(f"Generation failed: {e}")
+        import traceback
+        st.code(traceback.format_exc())
 
     return records
 
@@ -391,6 +399,10 @@ def main() -> None:
 
     st.title("DreamCanvas Studio")
     st.caption("Local Stable Diffusion studio for Apple Silicon (MPS)")
+    
+    # Show helpful info on first run
+    if "model_loaded" not in st.session_state:
+        st.info("ℹ️ **First time?** The first generation will download the Stable Diffusion model (~4GB) and may take 3-5 minutes. Subsequent generations will be much faster (30-60 seconds).")
 
     settings = sidebar_controls()
     prompt_info = prompt_section(settings)
